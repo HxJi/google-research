@@ -28,8 +28,10 @@ from absl import app
 from absl import flags
 from absl import logging
 import tensorflow as tf
+import sys
+sys.path.append('/home')
 
-
+from tensorflow.python.estimator import estimator
 from state_of_sparsity.sparse_rn50 import imagenet_input
 from state_of_sparsity.sparse_rn50 import resnet_model
 from state_of_sparsity.sparse_rn50 import utils
@@ -718,7 +720,7 @@ def main(_):
         logging('Checkpoint no longer exists,skipping checkpoint.')
 
   else:
-    global_step = tf.estimator._load_global_step_from_checkpoint_dir(output_dir)  # pylint: disable=protected-access,line-too-long
+    global_step = estimator._load_global_step_from_checkpoint_dir(output_dir)  # pylint: disable=protected-access,line-too-long
     # Session run hooks to export model for prediction
     export_hook = ExportModelHook(cpu_classifier, export_dir)
     hooks = [export_hook]
