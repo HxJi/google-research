@@ -718,7 +718,7 @@ def main(_):
           break
 
       except tf.errors.NotFoundError:
-        logging('Checkpoint no longer exists,skipping checkpoint.')
+        logging.info('Checkpoint no longer exists,skipping checkpoint.')
 
   else:
     global_step = estimator._load_global_step_from_checkpoint_dir(output_dir)  # pylint: disable=protected-access,line-too-long
@@ -741,7 +741,7 @@ def main(_):
         classifier.train(
             input_fn=imagenet_train.input_fn, max_steps=next_checkpoint)
         global_step = next_checkpoint
-        logging('Completed training up to step :', global_step)
+        logging.info('Completed training up to step :%d', global_step)
         classifier.evaluate(input_fn=imagenet_eval.input_fn, steps=eval_steps)
 
 
