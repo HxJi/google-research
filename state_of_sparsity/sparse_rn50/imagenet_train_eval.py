@@ -29,7 +29,7 @@ from absl import flags
 from absl import logging
 import tensorflow as tf
 import sys
-sys.path.append('/home')
+sys.path.append('/hom/hxji1997/google-research')
 
 from tensorflow.python.estimator import estimator
 from state_of_sparsity.sparse_rn50 import imagenet_input
