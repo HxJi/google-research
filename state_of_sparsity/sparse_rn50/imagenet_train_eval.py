@@ -658,7 +658,8 @@ def main(_):
   ]
 
   run_config = tpu_config.RunConfig(
-      master=FLAGS.master,
+      ##master=FLAGS.master,
+      master = TPUClusterResolver(tpu=[os.environ['TPU_NAME']]).get_master(),
       model_dir=output_dir,
       save_checkpoints_steps=FLAGS.steps_per_checkpoint,
       keep_checkpoint_max=FLAGS.keep_checkpoint_max,
