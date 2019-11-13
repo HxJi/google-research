@@ -20,17 +20,17 @@ python /home/hxji1997/google-research/state_of_sparsity/sparse_rn50/imagenet_tra
         --pruning_frequency=2000     \
         --pruning_method=threshold   
 
-procedure
-sudo docker build -t sparse_rn50 .
-sudo docker run -v /mnt/disks/Imagenet:/home/dataset -v /mnt/disks/checkpoints:/home/checkpoints -it sparse_rn50:latest
+# procedure
+# sudo docker build -t sparse_rn50 .
+# sudo docker run -v /mnt/disks/Imagenet:/home/dataset -v /mnt/disks/checkpoints:/home/checkpoints -it sparse_rn50:latest
 
 
-python /usr/share/models/official/mnist/mnist_tpu.py \
-  --tpu=$TPU_NAME \
-  --data_dir=${STORAGE_BUCKET}/data \
-  --model_dir=${STORAGE_BUCKET}/output \
-  --use_tpu=True \
-  --iterations=500 \
-  --train_steps=2000
+# python /usr/share/models/official/mnist/mnist_tpu.py \
+#   --tpu=$TPU_NAME \
+#   --data_dir=${STORAGE_BUCKET}/data \
+#   --model_dir=${STORAGE_BUCKET}/output \
+#   --use_tpu=True \
+#   --iterations=500 \
+#   --train_steps=2000
 
-  service-61279086142@cloud-tpu.iam.gserviceaccount.com
+#   service-61279086142@cloud-tpu.iam.gserviceaccount.com
